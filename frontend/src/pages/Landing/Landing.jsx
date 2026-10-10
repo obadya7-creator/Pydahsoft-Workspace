@@ -22,6 +22,7 @@ export default function Landing({ user }) {
   // Quick Action Navigation State
   const [activeNav, setActiveNav] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   // Contact Form State
   const [contactFormSubmitted, setContactFormSubmitted] = useState(false);
@@ -88,6 +89,8 @@ export default function Landing({ user }) {
   // Real-time active section tracking as user scrolls the page
   useEffect(() => {
     const handleScroll = () => {
+      setHasScrolled(window.scrollY > 60);
+
       const sections = ['home', 'about', 'services', 'solutions', 'contact'];
       const scrollPosition = window.scrollY + 180;
 
@@ -298,8 +301,8 @@ export default function Landing({ user }) {
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
             className={`relative py-1.5 transition-all duration-200 cursor-pointer ${activeNav === 'home'
-                ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
-                : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
+              ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
+              : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
               }`}
           >
             Home
@@ -308,8 +311,8 @@ export default function Landing({ user }) {
             href="#about"
             onClick={(e) => handleNavClick(e, 'about')}
             className={`relative py-1.5 transition-all duration-200 cursor-pointer ${activeNav === 'about'
-                ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
-                : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
+              ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
+              : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
               }`}
           >
             About Us
@@ -318,8 +321,8 @@ export default function Landing({ user }) {
             href="#services"
             onClick={(e) => handleNavClick(e, 'services')}
             className={`relative py-1.5 transition-all duration-200 cursor-pointer ${activeNav === 'services'
-                ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
-                : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
+              ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
+              : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
               }`}
           >
             Services
@@ -328,8 +331,8 @@ export default function Landing({ user }) {
             href="#solutions"
             onClick={(e) => handleNavClick(e, 'solutions')}
             className={`relative py-1.5 transition-all duration-200 cursor-pointer ${activeNav === 'solutions'
-                ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
-                : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
+              ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
+              : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
               }`}
           >
             Solutions
@@ -338,8 +341,8 @@ export default function Landing({ user }) {
             href="#contact"
             onClick={(e) => handleNavClick(e, 'contact')}
             className={`relative py-1.5 transition-all duration-200 cursor-pointer ${activeNav === 'contact'
-                ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
-                : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
+              ? 'text-[#20b875] font-black after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2.5px] after:bg-[#20b875] after:rounded-full'
+              : 'hover:text-[#119b62] after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2.5px] after:bg-[#20b875]/70 hover:after:w-full after:transition-all after:duration-300'
               }`}
           >
             Contact
@@ -510,6 +513,37 @@ export default function Landing({ user }) {
         </div>
       </section>
 
+      {/* Gap between Home and About Us with Jumping / Jiggling Scroll Down Indicator */}
+      <div
+        className={`w-full flex items-center justify-center py-6 sm:py-8 -mt-6 sm:-mt-10 mb-2 relative z-10 transition-all duration-500 ease-in-out ${
+          hasScrolled
+            ? 'opacity-0 pointer-events-none -translate-y-3 invisible'
+            : 'opacity-100 translate-y-0 visible'
+        }`}
+      >
+        <a
+          href="#about"
+          onClick={(e) => handleNavClick(e, 'about')}
+          className="scroll-down-indicator scroll-down-jump group"
+          aria-label="Scroll down to About Us section"
+        >
+          <span className="text-[14px] sm:text-[15px] font-semibold tracking-normal text-[#4d6676] group-hover:text-[#119b62] transition-colors duration-200">
+            Scroll Down
+          </span>
+          <svg
+            className="w-5 h-5 sm:w-6 sm:h-6 text-[#0e4b33] group-hover:text-[#119b62] transition-colors duration-200"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.8}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+
       {/* Section #about */}
       <section id="about" className="reveal-on-scroll border-y border-[#dfeee6] bg-[#edf9f2]/40 backdrop-blur-xs">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-10 lg:py-24">
@@ -540,55 +574,105 @@ export default function Landing({ user }) {
           </div>
         </div>
 
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-4 lg:px-10 lg:pb-24 reveal-on-scroll">
-          <div className="group rounded-2xl border border-[#b9dfc8] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-2 hover:bg-[#eaf8f0] hover:border-[#20b875] hover:shadow-[0_16px_36px_rgba(32,184,117,0.2)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#20b875]/10 transition-colors duration-300 group-hover:bg-[#20b875]">
-              <svg className="w-5 h-5 text-[#169a61] transition-colors duration-300 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <h3 className="mt-4 text-base font-bold text-[#09233d]">Superior / Manager Scope</h3>
-            <p className="mt-2 text-xs leading-6 text-[#61798a]">
-              Full organizational visibility. Define projects, assign teams and Team Leads, monitor live project health, track company-wide time utilization, and generate executive performance reports.
-            </p>
-          </div>
+        {/* Feature Cards Row */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 pb-16 lg:pb-24">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 reveal-on-scroll">
 
-          <div className="group rounded-2xl border border-[#b9dfc8] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-2 hover:bg-[#eaf8f0] hover:border-[#20b875] hover:shadow-[0_16px_36px_rgba(32,184,117,0.2)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#20b875]/10 transition-colors duration-300 group-hover:bg-[#20b875]">
-              <svg className="w-5 h-5 text-[#169a61] transition-colors duration-300 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+            {/* Card 1 — Superior / Manager Scope */}
+            <div className="relative overflow-hidden rounded-2xl bg-white border border-[#dfeee6] shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e8f8ef] via-[#d4f0e2] to-[#a8dfc0] opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="absolute bottom-0 right-0 w-36 h-36 translate-x-6 translate-y-6">
+                <svg viewBox="0 0 100 100" className="w-full h-full opacity-20" fill="none">
+                  <ellipse cx="50" cy="50" rx="50" ry="50" fill="#149a61" />
+                  <path d="M20 70 Q50 20 80 70" stroke="#0e6b44" strokeWidth="3" fill="none" />
+                  <path d="M10 80 Q50 10 90 80" stroke="#0e6b44" strokeWidth="2" fill="none" />
+                </svg>
+              </div>
+              <div className="relative p-6">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/70 shadow-sm">
+                  <svg className="h-5 w-5 text-[#149a61]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-bold text-[#09233d] mb-2">Superior / Manager Scope</h3>
+                <p className="text-sm leading-6 text-[#4d6676]">
+                  Full organizational visibility. Define projects, assign teams and Team Leads, monitor live project health, track company-wide time utilization, and generate executive performance reports.
+                </p>
+              </div>
             </div>
-            <h3 className="mt-4 text-base font-bold text-[#09233d]">Team Lead Delegation</h3>
-            <p className="mt-2 text-xs leading-6 text-[#61798a]">
-              Break high-level projects into structured modules, prepare daily work plans, assign tasks to members, manage sprint timelines, and approve or reject completed task submissions.
-            </p>
-          </div>
 
-          <div className="group rounded-2xl border border-[#b9dfc8] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-2 hover:bg-[#eaf8f0] hover:border-[#20b875] hover:shadow-[0_16px_36px_rgba(32,184,117,0.2)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#20b875]/10 transition-colors duration-300 group-hover:bg-[#20b875]">
-              <svg className="w-5 h-5 text-[#169a61] transition-colors duration-300 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            {/* Card 2 — Team Lead Delegation */}
+            <div className="relative overflow-hidden rounded-2xl bg-white border border-[#dfeee6] shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e8f8ef] via-[#d4f0e2] to-[#a8dfc0] opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="absolute bottom-0 right-0 w-36 h-36 translate-x-6 translate-y-6">
+                <svg viewBox="0 0 100 100" className="w-full h-full opacity-20" fill="none">
+                  <ellipse cx="50" cy="50" rx="50" ry="50" fill="#149a61" />
+                  <path d="M20 70 Q50 20 80 70" stroke="#0e6b44" strokeWidth="3" fill="none" />
+                  <path d="M10 80 Q50 10 90 80" stroke="#0e6b44" strokeWidth="2" fill="none" />
+                </svg>
+              </div>
+              <div className="relative p-6">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/70 shadow-sm">
+                  <svg className="h-5 w-5 text-[#149a61]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-bold text-[#09233d] mb-2">Team Lead Delegation</h3>
+                <p className="text-sm leading-6 text-[#4d6676]">
+                  Break high-level projects into structured modules, prepare daily work plans, assign tasks to members, manage sprint timelines, and approve or reject completed task submissions.
+                </p>
+              </div>
             </div>
-            <h3 className="mt-4 text-base font-bold text-[#09233d]">Employee Daily Execution</h3>
-            <p className="mt-2 text-xs leading-6 text-[#61798a]">
-              Clear, focused daily view of assigned work. Track active hours with an integrated stopwatch, log completion remarks and work evidence, and submit tasks for review smoothly.
-            </p>
-          </div>
 
-          <div className="group rounded-2xl border border-[#b9dfc8] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-2 hover:bg-[#eaf8f0] hover:border-[#20b875] hover:shadow-[0_16px_36px_rgba(32,184,117,0.2)]">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#20b875]/10 transition-colors duration-300 group-hover:bg-[#20b875]">
-              <svg className="w-5 h-5 text-[#169a61] transition-colors duration-300 group-hover:text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
+            {/* Card 3 — Employee Daily Execution */}
+            <div className="relative overflow-hidden rounded-2xl bg-white border border-[#dfeee6] shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e8f8ef] via-[#d4f0e2] to-[#a8dfc0] opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="absolute bottom-0 right-0 w-36 h-36 translate-x-6 translate-y-6">
+                <svg viewBox="0 0 100 100" className="w-full h-full opacity-20" fill="none">
+                  <ellipse cx="50" cy="50" rx="50" ry="50" fill="#149a61" />
+                  <path d="M20 70 Q50 20 80 70" stroke="#0e6b44" strokeWidth="3" fill="none" />
+                  <path d="M10 80 Q50 10 90 80" stroke="#0e6b44" strokeWidth="2" fill="none" />
+                </svg>
+              </div>
+              <div className="relative p-6">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/70 shadow-sm">
+                  <svg className="h-5 w-5 text-[#149a61]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-bold text-[#09233d] mb-2">Employee Daily Execution</h3>
+                <p className="text-sm leading-6 text-[#4d6676]">
+                  Clear, focused daily view of assigned work. Track active hours with an integrated stopwatch, log completion remarks and work evidence, and submit tasks for review smoothly.
+                </p>
+              </div>
             </div>
-            <h3 className="mt-4 text-base font-bold text-[#09233d]">Immutable Audit Trail</h3>
-            <p className="mt-2 text-xs leading-6 text-[#61798a]">
-              Every system action, status change, deadline revision, and time log is recorded in full audit logs, ensuring complete transparency and zero data ambiguity.
-            </p>
+
+            {/* Card 4 — Immutable Audit Trail */}
+            <div className="relative overflow-hidden rounded-2xl bg-white border border-[#dfeee6] shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#e8f8ef] via-[#d4f0e2] to-[#a8dfc0] opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+              <div className="absolute bottom-0 right-0 w-36 h-36 translate-x-6 translate-y-6">
+                <svg viewBox="0 0 100 100" className="w-full h-full opacity-20" fill="none">
+                  <ellipse cx="50" cy="50" rx="50" ry="50" fill="#149a61" />
+                  <path d="M20 70 Q50 20 80 70" stroke="#0e6b44" strokeWidth="3" fill="none" />
+                  <path d="M10 80 Q50 10 90 80" stroke="#0e6b44" strokeWidth="2" fill="none" />
+                </svg>
+              </div>
+              <div className="relative p-6">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/70 shadow-sm">
+                  <svg className="h-5 w-5 text-[#149a61]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-bold text-[#09233d] mb-2">Immutable Audit Trail</h3>
+                <p className="text-sm leading-6 text-[#4d6676]">
+                  Every system action, status change, deadline revision, and time log is recorded in full, building complete transparency across all company activities without ambiguity.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </section>
 
       {/* Section #services */}
@@ -621,98 +705,146 @@ export default function Landing({ user }) {
             </div>
           </div>
 
-          {/* 6 Services Cards Grid */}
+          {/* 6 Services Cards Grid matching the exact screenshot design */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Card 1: Web Solutions */}
-            <div className="bg-white rounded-3xl p-8 border border-[#e0f0e6] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#eaf6f0] text-[#118855] flex items-center justify-center mb-6 shadow-xs group-hover:scale-105 transition-transform">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <div className="relative rounded-[32px] sm:rounded-[36px] bg-white border border-slate-100/80 shadow-[0_12px_35px_rgba(10,50,30,0.06)] overflow-hidden p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,50,30,0.12)] flex flex-col justify-start min-h-[340px] sm:min-h-[360px] group">
+              <img
+                src="/service-card-template.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#eef8f2] text-[#138050] flex items-center justify-center mb-6 shadow-xs">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="9" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.6 9h16.8M3.6 15h16.8" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-black text-[#09233d] tracking-tight mb-3">Web Solutions</h3>
-                <p className="text-sm text-[#61798a] leading-relaxed font-normal">
+                <h3 className="text-2xl font-black text-[#0f283d] tracking-tight mb-3">
+                  Web Solutions
+                </h3>
+                <p className="text-[14px] sm:text-[14.5px] leading-[1.65] text-[#2c495d] font-normal">
                   Beautiful, responsive websites that captivate your audience and drive engagement. We create digital experiences that leave lasting impressions.
                 </p>
               </div>
             </div>
 
             {/* Card 2: Mobile Experiences */}
-            <div className="bg-white rounded-3xl p-8 border border-[#e0f0e6] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#eaf6f0] text-[#118855] flex items-center justify-center mb-6 shadow-xs group-hover:scale-105 transition-transform">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <div className="relative rounded-[32px] sm:rounded-[36px] bg-white border border-slate-100/80 shadow-[0_12px_35px_rgba(10,50,30,0.06)] overflow-hidden p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,50,30,0.12)] flex flex-col justify-start min-h-[340px] sm:min-h-[360px] group">
+              <img
+                src="/service-card-template.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#eef8f2] text-[#138050] flex items-center justify-center mb-6 shadow-xs">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <rect x="7" y="3" width="10" height="18" rx="2" ry="2" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11 18h2" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-black text-[#09233d] tracking-tight mb-3">Mobile Experiences</h3>
-                <p className="text-sm text-[#61798a] leading-relaxed font-normal">
+                <h3 className="text-2xl font-black text-[#0f283d] tracking-tight mb-3">
+                  Mobile Experiences
+                </h3>
+                <p className="text-[14px] sm:text-[14.5px] leading-[1.65] text-[#2c495d] font-normal">
                   Seamless mobile applications that users love. We build intuitive interfaces with fluid navigation and delightful interactions.
                 </p>
               </div>
             </div>
 
             {/* Card 3: Cloud Architecture */}
-            <div className="bg-white rounded-3xl p-8 border border-[#e0f0e6] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#eaf6f0] text-[#118855] flex items-center justify-center mb-6 shadow-xs group-hover:scale-105 transition-transform">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <div className="relative rounded-[32px] sm:rounded-[36px] bg-white border border-slate-100/80 shadow-[0_12px_35px_rgba(10,50,30,0.06)] overflow-hidden p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,50,30,0.12)] flex flex-col justify-start min-h-[340px] sm:min-h-[360px] group">
+              <img
+                src="/service-card-template.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#eef8f2] text-[#138050] flex items-center justify-center mb-6 shadow-xs">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <rect x="4" y="4" width="16" height="6" rx="2" />
                     <rect x="4" y="14" width="16" height="6" rx="2" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7h.01M8 17h.01" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-black text-[#09233d] tracking-tight mb-3">Cloud Architecture</h3>
-                <p className="text-sm text-[#61798a] leading-relaxed font-normal">
+                <h3 className="text-2xl font-black text-[#0f283d] tracking-tight mb-3">
+                  Cloud Architecture
+                </h3>
+                <p className="text-[14px] sm:text-[14.5px] leading-[1.65] text-[#2c495d] font-normal">
                   Future-proof cloud infrastructure designed for scalability and performance. We optimize your digital foundation for growth.
                 </p>
               </div>
             </div>
 
             {/* Card 4: Data Intelligence */}
-            <div className="bg-white rounded-3xl p-8 border border-[#e0f0e6] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#eaf6f0] text-[#118855] flex items-center justify-center mb-6 shadow-xs group-hover:scale-105 transition-transform">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+            <div className="relative rounded-[32px] sm:rounded-[36px] bg-white border border-slate-100/80 shadow-[0_12px_35px_rgba(10,50,30,0.06)] overflow-hidden p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,50,30,0.12)] flex flex-col justify-start min-h-[340px] sm:min-h-[360px] group">
+              <img
+                src="/service-card-template.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#eef8f2] text-[#138050] flex items-center justify-center mb-6 shadow-xs">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 19V12M13 19V8M17 19V14" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-black text-[#09233d] tracking-tight mb-3">Data Intelligence</h3>
-                <p className="text-sm text-[#61798a] leading-relaxed font-normal">
+                <h3 className="text-2xl font-black text-[#0f283d] tracking-tight mb-3">
+                  Data Intelligence
+                </h3>
+                <p className="text-[14px] sm:text-[14.5px] leading-[1.65] text-[#2c495d] font-normal">
                   Transform raw data into actionable insights. Our analytics solutions help you make informed business decisions with confidence.
                 </p>
               </div>
             </div>
 
-            {/* Card 5: Customer Relationship Management (CRM) */}
-            <div className="bg-white rounded-3xl p-8 border border-[#e0f0e6] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#eaf6f0] text-[#118855] flex items-center justify-center mb-6 shadow-xs group-hover:scale-105 transition-transform">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            {/* Card 5: Customer Relationship Management */}
+            <div className="relative rounded-[32px] sm:rounded-[36px] bg-white border border-slate-100/80 shadow-[0_12px_35px_rgba(10,50,30,0.06)] overflow-hidden p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,50,30,0.12)] flex flex-col justify-start min-h-[340px] sm:min-h-[360px] group">
+              <img
+                src="/service-card-template.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#eef8f2] text-[#138050] flex items-center justify-center mb-6 shadow-xs">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-black text-[#09233d] tracking-tight mb-3">Customer Relationship Management</h3>
-                <p className="text-sm text-[#61798a] leading-relaxed font-normal">
+                <h3 className="text-2xl font-black text-[#0f283d] tracking-tight mb-3">
+                  Customer Relationship Management
+                </h3>
+                <p className="text-[14px] sm:text-[14.5px] leading-[1.65] text-[#2c495d] font-normal">
                   Powerful CRM platforms engineered to streamline client communication, manage sales pipelines, track customer interactions, and boost retention with intelligent automation.
                 </p>
               </div>
             </div>
 
             {/* Card 6: Enterprise ERP Solutions */}
-            <div className="bg-white rounded-3xl p-8 border border-[#e0f0e6] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-14 h-14 rounded-2xl bg-[#eaf6f0] text-[#118855] flex items-center justify-center mb-6 shadow-xs group-hover:scale-105 transition-transform">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <div className="relative rounded-[32px] sm:rounded-[36px] bg-white border border-slate-100/80 shadow-[0_12px_35px_rgba(10,50,30,0.06)] overflow-hidden p-8 sm:p-9 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(10,50,30,0.12)] flex flex-col justify-start min-h-[340px] sm:min-h-[360px] group">
+              <img
+                src="/service-card-template.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-[#eef8f2] text-[#138050] flex items-center justify-center mb-6 shadow-xs">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H7m4 0v10" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-black text-[#09233d] tracking-tight mb-3">Enterprise ERP Solutions</h3>
-                <p className="text-sm text-[#61798a] leading-relaxed font-normal">
+                <h3 className="text-2xl font-black text-[#0f283d] tracking-tight mb-3">
+                  Enterprise ERP Solutions
+                </h3>
+                <p className="text-[14px] sm:text-[14.5px] leading-[1.65] text-[#2c495d] font-normal">
                   Comprehensive ERP frameworks that automate core business workflows, unite organizational data, and optimize workforce operational efficiency.
                 </p>
               </div>
@@ -736,115 +868,147 @@ export default function Landing({ user }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* 01: Hotel Resource Management System */}
-            <div className="bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
-                    01
+            <div className="relative bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden">
+              <img
+                src="/solution-card-1.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0 rounded-3xl"
+              />
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
+                      01
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
+                      Hospitality ERP
+                    </span>
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
-                    Hospitality ERP
-                  </span>
+                  <h3 className="text-xl font-black text-[#09233d] mb-3">Human Resource Management System</h3>
+                  <p className="text-xs text-[#61798a] leading-relaxed mb-6">
+                    An all-in-one hospitality management platform that unifies front desk reservations, room inventory control, housekeeping schedules, guest billing, and staff resource allocation. Drive higher guest satisfaction while maximizing occupancy rates and revenue performance.
+                  </p>
                 </div>
-                <h3 className="text-xl font-black text-[#09233d] mb-3">Human Resource Management System</h3>
-                <p className="text-xs text-[#61798a] leading-relaxed mb-6">
-                  An all-in-one hospitality management platform that unifies front desk reservations, room inventory control, housekeeping schedules, guest billing, and staff resource allocation. Drive higher guest satisfaction while maximizing occupancy rates and revenue performance.
-                </p>
+                <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Real-time Room Inventory &amp; Front-Desk Reservation Engine
+                  </li>
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Automated Housekeeping Dispatch &amp; Staff Shift Rostering
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Real-time Room Inventory &amp; Front-Desk Reservation Engine
-                </li>
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Automated Housekeeping Dispatch &amp; Staff Shift Rostering
-                </li>
-              </ul>
             </div>
 
             {/* 02: Hostel Management System */}
-            <div className="bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
-                    02
+            <div className="relative bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden">
+              <img
+                src="/solution-card-2.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0 rounded-3xl"
+              />
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
+                      02
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
+                      Residential Operations
+                    </span>
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
-                    Residential Operations
-                  </span>
+                  <h3 className="text-xl font-black text-[#09233d] mb-3">Hostel Management System</h3>
+                  <p className="text-xs text-[#61798a] leading-relaxed mb-6">
+                    Comprehensive student and resident accommodation management solution designed for educational campuses and corporate housing. Streamline room allotment, digital gate passes, mess meal planning, visitor records, and maintenance requests in real-time.
+                  </p>
                 </div>
-                <h3 className="text-xl font-black text-[#09233d] mb-3">Hostel Management System</h3>
-                <p className="text-xs text-[#61798a] leading-relaxed mb-6">
-                  Comprehensive student and resident accommodation management solution designed for educational campuses and corporate housing. Streamline room allotment, digital gate passes, mess meal planning, visitor records, and maintenance requests in real-time.
-                </p>
+                <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Smart Room Allocation, Occupancy &amp; Bed Tracking
+                  </li>
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Digital Out-Pass Generation &amp; Mess Consumption Logs
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Smart Room Allocation, Occupancy &amp; Bed Tracking
-                </li>
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Digital Out-Pass Generation &amp; Mess Consumption Logs
-                </li>
-              </ul>
             </div>
 
             {/* 03: Student Database Management System */}
-            <div className="bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
-                    03
+            <div className="relative bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden">
+              <img
+                src="/solution-card-3.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0 rounded-3xl"
+              />
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
+                      03
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
+                      EduTech Data Hub
+                    </span>
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
-                    EduTech Data Hub
-                  </span>
+                  <h3 className="text-xl font-black text-[#09233d] mb-3">Student Database Management System</h3>
+                  <p className="text-xs text-[#61798a] leading-relaxed mb-6">
+                    Centralized institutional repository engineered to manage complete student lifecycle records. Maintain demographic data, academic transcripts, attendance logs, performance metrics, and guardian contact profiles with role-based security access.
+                  </p>
                 </div>
-                <h3 className="text-xl font-black text-[#09233d] mb-3">Student Database Management System</h3>
-                <p className="text-xs text-[#61798a] leading-relaxed mb-6">
-                  Centralized institutional repository engineered to manage complete student lifecycle records. Maintain demographic data, academic transcripts, attendance logs, performance metrics, and guardian contact profiles with role-based security access.
-                </p>
+                <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Unified Academic Profiles &amp; Cumulative Grade Tracking
+                  </li>
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Secure Multi-Role Access for Administrators, Faculty &amp; Parents
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Unified Academic Profiles &amp; Cumulative Grade Tracking
-                </li>
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Secure Multi-Role Access for Administrators, Faculty &amp; Parents
-                </li>
-              </ul>
             </div>
 
             {/* 04: Fee Management System */}
-            <div className="bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
-                    04
+            <div className="relative bg-white rounded-3xl p-8 border border-[#d2eadc] shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group overflow-hidden">
+              <img
+                src="/solution-card-4.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover object-bottom pointer-events-none select-none z-0 rounded-3xl"
+              />
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#eaf6f0] text-[#169a61] flex items-center justify-center font-black text-xl shadow-xs group-hover:scale-105 transition-transform">
+                      04
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
+                      FinTech &amp; Billing
+                    </span>
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 bg-emerald-50 text-[#169a61] rounded-full border border-emerald-200">
-                    FinTech &amp; Billing
-                  </span>
+                  <h3 className="text-xl font-black text-[#09233d] mb-3">Fee Management System</h3>
+                  <p className="text-xs text-[#61798a] leading-relaxed mb-6">
+                    Automated financial management software designed for schools, colleges, and training academies. Automate tuition fee structuring, multi-mode digital payments, instant tax-compliant receipts, automated overdue SMS/email reminders, and real-time revenue audits.
+                  </p>
                 </div>
-                <h3 className="text-xl font-black text-[#09233d] mb-3">Fee Management System</h3>
-                <p className="text-xs text-[#61798a] leading-relaxed mb-6">
-                  Automated financial management software designed for schools, colleges, and training academies. Automate tuition fee structuring, multi-mode digital payments, instant tax-compliant receipts, automated overdue SMS/email reminders, and real-time revenue audits.
-                </p>
+                <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Online Payment Gateway Integration &amp; Instant E-Receipts
+                  </li>
+                  <li className="flex items-center gap-2.5 text-emerald-800">
+                    <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+                    Automated Late-Fee Rules &amp; Real-Time Ledger Analytics
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-2.5 text-xs font-semibold text-gray-700 pt-4 border-t border-gray-100">
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Online Payment Gateway Integration &amp; Instant E-Receipts
-                </li>
-                <li className="flex items-center gap-2.5 text-emerald-800">
-                  <svg className="w-4 h-4 text-[#20b875] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
-                  Automated Late-Fee Rules &amp; Real-Time Ledger Analytics
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -856,79 +1020,97 @@ export default function Landing({ user }) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             {/* Contact Form */}
-            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#b9dfc8] shadow-lg">
-              <span className="text-xs font-black uppercase tracking-widest text-[#20b875] block mb-2">Get in Touch</span>
-              <h2 className="text-3xl font-black text-[#09233d] tracking-tight">Contact Sales &amp; Support</h2>
-              <p className="text-xs text-gray-500 font-medium mt-1 mb-8">
-                Have questions or need a custom corporate package? Send us a message and our team will get back to you promptly.
-              </p>
+            <div className="relative bg-white rounded-[32px] sm:rounded-[36px] p-8 sm:p-12 border border-[#cde5d6] shadow-[0_16px_45px_rgba(20,60,40,0.06)] overflow-hidden">
+              <img
+                src="/contact-card-bg.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none z-0 rounded-[32px] sm:rounded-[36px]"
+              />
+              <div className="relative z-10">
+                <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-[#4cae75] block mb-2">Get in Touch</span>
+                <h2 className="text-3xl sm:text-[34px] font-extrabold text-[#09233d] tracking-tight">Contact Sales &amp; Support</h2>
+                <p className="text-xs sm:text-[13px] text-gray-500 font-normal mt-2 leading-relaxed">
+                  Have questions or need a custom corporate package? Send us a message and our team will get back to you promptly.
+                </p>
 
-              {contactFormSubmitted ? (
-                <div className="bg-emerald-50 border-2 border-[#20b875] rounded-2xl p-6 text-center animate-in zoom-in-95 duration-200">
-                  <div className="w-12 h-12 bg-[#20b875] text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold">
-                    ✓
+                {/* Subtle divider line matching the mockup */}
+                <div className="h-px w-full bg-gradient-to-r from-transparent via-[#b5ddc4] to-transparent my-6" />
+
+                {contactFormSubmitted ? (
+                  <div className="bg-emerald-50/90 backdrop-blur-xs border-2 border-[#4cae75] rounded-2xl p-6 text-center animate-in zoom-in-95 duration-200">
+                    <div className="w-12 h-12 bg-[#4cae75] text-white rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold shadow-sm">
+                      ✓
+                    </div>
+                    <h4 className="text-lg font-black text-[#09233d]">Thank You!</h4>
+                    <p className="text-xs text-gray-600 font-medium mt-1">
+                      Your message has been received successfully. Our sales team will reply within 2 business hours.
+                    </p>
                   </div>
-                  <h4 className="text-lg font-black text-[#09233d]">Thank You!</h4>
-                  <p className="text-xs text-gray-600 font-medium mt-1">
-                    Your message has been received successfully. Our sales team will reply within 2 business hours.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleContactSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-bold text-[#09233d] mb-1">Your Full Name</label>
-                    <input
-                      type="text"
-                      required
-                      value={contactFormData.name}
-                      onChange={(e) => setContactFormData({ ...contactFormData, name: e.target.value })}
-                      placeholder="e.g. John Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-gray-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#20b875]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-[#09233d] mb-1">Business Email Address</label>
-                    <input
-                      type="email"
-                      required
-                      value={contactFormData.email}
-                      onChange={(e) => setContactFormData({ ...contactFormData, email: e.target.value })}
-                      placeholder="name@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-gray-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#20b875]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-[#09233d] mb-1">Subject</label>
-                    <select
-                      value={contactFormData.subject}
-                      onChange={(e) => setContactFormData({ ...contactFormData, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-gray-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#20b875]"
+                ) : (
+                  <form onSubmit={handleContactSubmit} className="space-y-4 sm:space-y-4.5">
+                    <div>
+                      <label className="block text-xs sm:text-[13px] font-semibold text-[#1e293b] mb-1.5">Your Full Name</label>
+                      <input
+                        type="text"
+                        required
+                        value={contactFormData.name}
+                        onChange={(e) => setContactFormData({ ...contactFormData, name: e.target.value })}
+                        placeholder="e.g. John Doe"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-white border border-[#d8e5dd] text-xs sm:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4cae75]/40 focus:border-[#4cae75] shadow-2xs transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-[13px] font-semibold text-[#1e293b] mb-1.5">Business Email Address</label>
+                      <input
+                        type="email"
+                        required
+                        value={contactFormData.email}
+                        onChange={(e) => setContactFormData({ ...contactFormData, email: e.target.value })}
+                        placeholder="name@company.com"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-white border border-[#d8e5dd] text-xs sm:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4cae75]/40 focus:border-[#4cae75] shadow-2xs transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-[13px] font-semibold text-[#1e293b] mb-1.5">Subject</label>
+                      <div className="relative">
+                        <select
+                          value={contactFormData.subject}
+                          onChange={(e) => setContactFormData({ ...contactFormData, subject: e.target.value })}
+                          className="w-full px-4 py-3.5 pr-10 rounded-2xl bg-white border border-[#d8e5dd] text-xs sm:text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#4cae75]/40 focus:border-[#4cae75] shadow-2xs appearance-none cursor-pointer transition-all"
+                        >
+                          <option value="General Inquiry">General Inquiry</option>
+                          <option value="Enterprise Custom Solution">Enterprise Custom Solution</option>
+                          <option value="Technical Support">Technical Support</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs sm:text-[13px] font-semibold text-[#1e293b] mb-1.5">Message</label>
+                      <textarea
+                        required
+                        rows="4"
+                        value={contactFormData.message}
+                        onChange={(e) => setContactFormData({ ...contactFormData, message: e.target.value })}
+                        placeholder="Describe your requirements or questions..."
+                        className="w-full px-4 py-3.5 rounded-2xl bg-white border border-[#d8e5dd] text-xs sm:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#4cae75]/40 focus:border-[#4cae75] shadow-2xs transition-all resize-y"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full py-4 rounded-2xl bg-[#4cae75] hover:bg-[#3ea067] text-white font-bold text-sm shadow-md hover:shadow-lg active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
                     >
-                      <option value="General Inquiry">General Inquiry</option>
-                      <option value="Enterprise Custom Solution">Enterprise Custom Solution</option>
-                      <option value="Technical Support">Technical Support</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-[#09233d] mb-1">Message</label>
-                    <textarea
-                      required
-                      rows="4"
-                      value={contactFormData.message}
-                      onChange={(e) => setContactFormData({ ...contactFormData, message: e.target.value })}
-                      placeholder="Describe your requirements or questions..."
-                      className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-gray-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#20b875]"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full py-4 rounded-xl bg-[#20b875] hover:bg-[#169a61] text-white font-extrabold text-xs shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <span>Send Message Now</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </button>
-                </form>
-              )}
+                      <span>Send Message Now</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
 
             {/* Direct Contact Information */}
